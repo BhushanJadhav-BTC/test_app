@@ -1,0 +1,41 @@
+<h1>Enter Project Data</h1>
+<div class="row">
+	<div class="span6 offset3">
+		<%= form_for(@page) do |f| %>
+
+		<table align="center">
+		<tr>
+			<td><%= f.label :name %></td> <td><%= f.text_field :name %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :code %></td> <td><%= f.text_field :code %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :description %></td> <td><%= f.text_field :description %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :billing_type %></td> <td><%= f.select :billing, options_for_select(["tnm","fixed"]) %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :start_dt %></td> <td><%= f.date_field :start %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :deadline_dt %></td> <td><%= f.date_field :deadline %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :end_dt %></td> <td><%= f.date_field :end %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :github_url %></td> <td><%= f.text_field :github %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :status %></td> <td><%= f.select :status, options_for_select(["poc","kick", "completed"]) %></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td><td><%= f.submit "Save Data", class: "btn btn-large btn-primary" %></td>
+		</tr>
+		</table>
+		<% end %>
+	</div>
+
+</div>

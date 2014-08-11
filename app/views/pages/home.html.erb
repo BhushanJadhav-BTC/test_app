@@ -1,0 +1,13 @@
+
+<h1>Project Tracking Application</h1>
+<p align="center">This is an Application for Project Tracking</p>
+<table border="2" align="center">
+<tr>
+<th>Id</th>
+<th>Name</th><th>Code</th><th>Description</th><th>Billing_type</th><th>Start_date</th><th>Deadline_date</th>
+<th>End_date</th><th>Github_Url</th><th>Status</th>
+</tr>
+<% @page.each do |f|%>
+<tr><td><%=f.id%></td><td><%=f.name%></td><td><%=f.code%></td><td><%=f.description%></td><td><%=f.billing%></td><td><%=f.start%></td><td><%=f.deadline%></td><td><%=f.end%></td><td><%=f.github%></td><td><%=f.status%></td></tr>
+<% end %>
+</table>

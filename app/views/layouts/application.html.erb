@@ -1,14 +1,47 @@
-<!DOCTYPE html>
 <html>
-<head>
-  <title>TestApp</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>Home</title>
+    <%= stylesheet_link_tag "application", media: "all",
+                                           "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <%= link_to "Project Tracking", '#', id: "logo" %>
+          <nav>
+            <ul class="nav pull-right">
+              <li><%= link_to "Home",  root_path %></li>
+              <li><%= link_to "New",   new_path %></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <br>
+    <div class="container">
+    <%= link_to image_tag("Project-icon.png", :size => "60x80", alt: "rails"), "http://railstutorial.org/" %>
+    <br><br>
+      <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+    <% end %>
+      <%= yield %>
+    </div>
+    <footer class="footer">
+    <small>
+    <a href="http://railstutorial.org/">Project Traking&nbsp;</a>: Bhushan Jadhav
+    </small>
+    <nav>
+      <ul>
+          <li><%= link_to "Contact", contact_path %>&nbsp;</li>
+       </ul>   
+     </nav>
+    </footer>
+  </body>
 </html>
+
