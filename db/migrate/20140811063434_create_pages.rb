@@ -10,8 +10,9 @@ class CreatePages < ActiveRecord::Migration
       t.date :end
       t.string :github
       t.string :status
-
+      t.integer :client_id
       t.timestamps
     end
+   add_index :pages, [:client_id, :created_at]
   end
 end

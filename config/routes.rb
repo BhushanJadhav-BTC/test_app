@@ -1,8 +1,16 @@
 TestApp::Application.routes.draw do
+  #get "clients/new"
   resources :pages
+  resources :clients
+  #resources :searches
   root 'pages#home'
+  
   match '/new', to: 'pages#new', via: 'get'
   match '/contact', to: 'pages#contact', via: 'get'
+  match '/edit', to:'pages#edit', via: 'get'
+  match '/new', to: 'clients#new', via: 'get'
+  match '/show', to: 'clients#show', via: 'get'
+  match '/new', to: 'searches#new', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

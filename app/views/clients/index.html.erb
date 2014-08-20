@@ -1,0 +1,12 @@
+
+<h1>Clients</h1>
+
+<table border="2" align="center">
+<tr>
+<th>Id</th>
+<th>Name</th><th>Country</th>
+</tr>
+<% @clients.each do |f|%>
+<tr><td><%=f.id%></td><td><%=f.name%></td><td><%=f.countary%></td></tr>
+<% end %>
+</table>

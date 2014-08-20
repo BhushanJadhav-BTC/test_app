@@ -1,0 +1,8 @@
+<%= form_for @search do |s| %>
+
+		<table align="center">
+		<tr>
+			<td><%= s.label :name %></td> <td><%= s.text_field :name %></td><td><%= s.label :status %></td> <td><%= s.select :status, options_for_select(["poc","kick", "completed"]) %></td><td>&nbsp;</td><td><%= s.submit "Search"%></td>
+		</tr>
+		</table>
+<% end %>		

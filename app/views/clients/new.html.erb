@@ -1,0 +1,21 @@
+<h1>Client</h1>
+<div class="row">
+	<div class="span6 offset3">
+		<%= form_for(@client) do |f| %>
+
+		<table align="center">
+		<tr>
+			<td><%= f.label :name %></td> <td><%= f.text_field :name %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :Country %></td> <td><%= f.select :countary, options_for_select(["India","SouthAfrica","Australia"]) %></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td><td><%= f.submit "Save Data", class: "btn btn-large btn-primary" %></td>
+		</tr>
+		</table>
+		<% end %>
+	</div>
+
+</div>
+

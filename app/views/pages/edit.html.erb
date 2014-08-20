@@ -1,4 +1,4 @@
-<h1>Enter Project Data</h1>
+<h1>Edit Project Data</h1>
 <div class="row">
 	<div class="span6 offset3">
 		<%= form_for(@page) do |f| %>
@@ -32,7 +32,7 @@
 			<td><%= f.label :status %></td> <td><%= f.select :status, options_for_select(["poc","kick", "completed"]) %></td>
 		</tr>
 		<tr>
-			<td><%= f.label :client %></td> <td><%= collection_select(:page,:client_id,Client.all,:id,:name) %></td>
+			<td><%= f.label :client %></td> <td><input type= "hidden" ></td>
 		</tr>
 		<tr>
 			<td>&nbsp;</td><td><%= f.submit "Save Data", class: "btn btn-large btn-primary" %></td>

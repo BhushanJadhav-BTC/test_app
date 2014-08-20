@@ -1,13 +1,30 @@
 
 <h1>Project Tracking Application</h1>
+
 <p align="center">This is an Application for Project Tracking</p>
+
+<%= form_tag root_path, :method => 'get' do %>
+	<p>
+	<table align="center">
+		<tr>
+			<td>Name: </td><td><%= text_field_tag :search, params[:search] %></td><td>&nbsp;&nbsp;</td><td>Status:</td><td><%= select_tag :status,options_for_select(["poc","kick", "completed"]) %></td><td>&nbsp;&nbsp;</td><td>Client:</td><td><%= collection_select(:client,:client_id,Client.all,:id,:name) %></td><td>&nbsp;&nbsp;</td><td><%= submit_tag "Search", :name => nil %></td>
+		</tr>
+		
+	</table>	
+	</p>	
+<% end %>
+
+
 <table border="2" align="center">
 <tr>
 <th>Id</th>
 <th>Name</th><th>Code</th><th>Description</th><th>Billing_type</th><th>Start_date</th><th>Deadline_date</th>
-<th>End_date</th><th>Github_Url</th><th>Status</th>
+<th>End_date</th><th>Github_Url</th><th>Status</th><th>Action</th><th>Client</th>
 </tr>
 <% @page.each do |f|%>
-<tr><td><%=f.id%></td><td><%=f.name%></td><td><%=f.code%></td><td><%=f.description%></td><td><%=f.billing%></td><td><%=f.start%></td><td><%=f.deadline%></td><td><%=f.end%></td><td><%=f.github%></td><td><%=f.status%></td></tr>
+
+<tr><td><%=f.id%></td><td><%=f.name%></td><td><%=f.code%></td><td><%=f.description%></td><td><%=f.billing%></td><td><%=f.start%></td><td><%=f.deadline%></td><td><%=f.end%></td><td><%=f.github%></td><td><%=f.status%></td><td><%= link_to "Edit",   edit_page_path(f) %>/<% if f.client.name.nil?%><%= link_to "Delete", page_path(f), method: :delete, data: { confirm: "You are sure?"} %><%else%>Delete<%end%></td><td><%= f.client.name %></td></tr>
 <% end %>
 </table>
+
+<%= will_paginate @page %>
